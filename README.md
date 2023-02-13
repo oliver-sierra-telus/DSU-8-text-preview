@@ -50,3 +50,6 @@ Muestro menú
 
 salir. 
 
+utilizando maven
+diagrama de clasees
+
