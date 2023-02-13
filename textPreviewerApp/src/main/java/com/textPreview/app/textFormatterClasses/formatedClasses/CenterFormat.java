@@ -6,7 +6,7 @@ public class CenterFormat extends TextFormarter {
 
     @Override
     protected void formatText(int intColumnSize, String texStringFormat) {
-        // TODO Auto-generated method stub
+        
         
     }
     

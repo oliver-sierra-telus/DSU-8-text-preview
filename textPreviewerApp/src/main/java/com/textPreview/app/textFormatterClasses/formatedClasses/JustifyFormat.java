@@ -6,7 +6,9 @@ public class JustifyFormat extends TextFormarter {
 
     @Override
     public void formatText(int intColumnSize, String texStringFormat){
+        String[] cadenaSplit = texStringFormat.split(" ", 5);
 
+        
     }
     
 }
