@@ -8,6 +8,10 @@
   <name>textPreviewerApp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
+  <dependencies
+</properties>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

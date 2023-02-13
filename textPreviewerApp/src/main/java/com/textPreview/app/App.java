@@ -1,4 +1,4 @@
-package com.textPreview.app;
+package textPreviewerApp.src.main.java.com.textPreview.app;
 
 /**
  * Hello world!
