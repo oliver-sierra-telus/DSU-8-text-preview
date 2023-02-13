@@ -13,19 +13,29 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 maximo 10  (left)
 Lorem ipsum
+
 dolor   sit
+
 amet      ,
+
 consectetur  
+
 adipiscing 
+
 elit
 
 
 maximo 10  (center)
 Lorem ipsum
+
  dolor sit
+ 
     amet ,
+    
  consectetur  
+ 
  adipiscing 
+ 
     elit
     
     
