@@ -31,6 +31,12 @@ Lorem ipsum
     
     
 Al inicio, pregunto texto???
+
+Preguntar columnas???? (máximo)
+
 Muestro menú
+
 (4 opciones, y una 5 salir)
+
 salir. 
+
