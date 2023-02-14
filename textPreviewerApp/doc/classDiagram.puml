@@ -1,0 +1,64 @@
+@startuml textPreviewer
+
+package program{
+
+    class MenuTextFormater{
+
+        + void showMenu()
+        + void formatText()
+
+
+    }
+
+
+
+
+
+
+
+    package textFormaterClasses{
+
+        abstract class TextFormater{
+            # int columnSize
+            # String textToFormat
+
+            + abstract formatText(int columnSize,
+            String textToFormat)
+
+            
+
+        }
+
+
+        package formatedClasses{
+
+            class LeftFormat{
+                
+            }
+            class RightFormat{
+                
+            }
+            class CenterFormat{
+                
+            }
+            class JustifyFormat{
+                
+            }
+        }
+
+    }
+}
+
+MenuTextFormater *-- TextFormater
+
+TextFormater <|-- LeftFormat
+TextFormater <|-- RightFormat
+TextFormater <|-- CenterFormat
+TextFormater <|-- JustifyFormat
+
+
+
+
+
+
+@enduml
