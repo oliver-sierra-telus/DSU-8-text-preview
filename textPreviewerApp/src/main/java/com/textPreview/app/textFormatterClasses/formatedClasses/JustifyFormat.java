@@ -4,6 +4,7 @@ import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.T
 
 public class JustifyFormat extends TextFormarter {
     private static int wordTextIndex = 0;
+    private static int wordIndex = 0;
 
     @Override
     public void formatText(int intColumnSize, String texStringFormat){
@@ -26,43 +27,48 @@ public class JustifyFormat extends TextFormarter {
         int spaceCounter = 0;
         int remainingSpace = 0;
         int spaceDistribution = 0;
-        int wordIndex = 0;
         int spaceDistributionCounter = 0;
         int spacesToAdd = 0;
         String lineBuilding = "";
         String whiteSpace = " ";
 
 
-        while((spaceCounter += words[wordIndex].length()) < intColumnSize ){
+        while((spaceCounter + words[wordIndex].length()) < intColumnSize ){
             spaceCounter+= words[wordIndex].length();
+            wordIndex++;
             if(spaceCounter!=intColumnSize){
                 spaceCounter++;
             }
             wordCounter++;
         }
 
-        spaceDistribution = ((intColumnSize-spaceCounter)/wordCounter)+1;
-        spacesToAdd = (intColumnSize-spaceCounter);
+        spaceDistribution = ((intColumnSize-(spaceCounter-1))/wordCounter)+1;
+        spacesToAdd = (intColumnSize-(spaceCounter-1));
 
 
         for (int i = 0; i < wordCounter; i++) {
-            if(wordTextIndex == words.length-1) return lineBuilding;
+            if(wordTextIndex == words.length) return lineBuilding;
 
 
             lineBuilding += words[wordTextIndex];
-            if(lineBuilding.length() != intColumnSize){
 
-                if(spaceDistributionCounter!=spacesToAdd){
+            if(lineBuilding.length() <= intColumnSize){
+
+                if(spaceDistributionCounter!=spacesToAdd && (spacesToAdd-spaceDistributionCounter)>=2){
                     
                     //TODO FIX THIS
-                    lineBuilding += whiteSpace.repeat(spaceDistribution);
+                    lineBuilding += whiteSpace.repeat(spaceDistribution+1);
+                    spaceDistributionCounter+=spaceDistribution;
 
+                } else if((spacesToAdd-spaceDistributionCounter)==1){
+                    lineBuilding += whiteSpace.repeat(spaceDistribution);
                     spaceDistributionCounter++;
                 }
-                else{
+                else if(lineBuilding.length() == intColumnSize){
+                    
+                } else{
                     lineBuilding += whiteSpace;
                 }
-
 
             }
             wordTextIndex++;
@@ -71,6 +77,7 @@ public class JustifyFormat extends TextFormarter {
             
         }
 
-        return lineBuilding; 
+
+        return lineBuilding+="|"; 
     }
 }
