@@ -9,24 +9,25 @@ public class CenterFormat extends TextFormarter {
     @Override
     public void formatText(int intColumnSize, String texStringFormat) {
         
-        String[] cadenaSplit = texStringFormat.split(" ", 100);
+        // String[] cadenaSplit = texStringFormat.split(" ", 100);
+        char[] cadenaSplit = new char[texStringFormat.length()];
+        
+        for (int i = 0; i < texStringFormat.length(); i++) {
+            cadenaSplit[i] = texStringFormat.charAt(i);
+        }
 
         int remanente = intColumnSize;
         String myNewText = "";
         String textWithSpace = "";
         int whiteSpaces;
+
         for (int i = 0; i < cadenaSplit.length; i++) {
             
-            if(cadenaSplit[i].length() <= remanente) {
+            if(remanente >= 0) {
                 myNewText += cadenaSplit[i];
-                myNewText+= " ";
-                remanente = remanente - cadenaSplit[i].length()-1;
-                
-                // System.out.println("tamanio " + cadenaSplit[i].length() + " linea lleva " + (line.length()) + " y restante " + (remanente) );
-                
+                remanente = remanente - 1;
             } else {
-                // System.out.println("el remanente es: " + Math.round(remanente/2));
-                whiteSpaces = Math.round((remanente/2));
+                whiteSpaces = remanente;
                 myNewText+="\n";
                 remanente = intColumnSize;
                 i--;
