@@ -6,7 +6,6 @@ public class LeftFormat extends TextFormarter {
 
     @Override
     protected void formatText(int intColumnSize, String texStringFormat) {
-        // TODO Auto-generated method stub
         
         int length = texStringFormat.length();
         int lines = length / 10;
@@ -18,7 +17,7 @@ public class LeftFormat extends TextFormarter {
         for (int i = 0; i < lines; i++) {
             int start = i * 10;
             int end = Math.min(length, start + 10);
-            System.out.println(input.substring(start, end));
+            System.out.println(texStringFormat.substring(start, end));
         }
     }
     
