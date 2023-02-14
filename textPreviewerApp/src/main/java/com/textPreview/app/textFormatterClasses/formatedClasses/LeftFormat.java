@@ -8,6 +8,18 @@ public class LeftFormat extends TextFormarter {
     protected void formatText(int intColumnSize, String texStringFormat) {
         // TODO Auto-generated method stub
         
+        int length = texStringFormat.length();
+        int lines = length / 10;
+
+        if(length % 10 != 0) {
+            lines++;
+        }
+
+        for (int i = 0; i < lines; i++) {
+            int start = i * 10;
+            int end = Math.min(length, start + 10);
+            System.out.println(input.substring(start, end));
+        }
     }
     
 }
