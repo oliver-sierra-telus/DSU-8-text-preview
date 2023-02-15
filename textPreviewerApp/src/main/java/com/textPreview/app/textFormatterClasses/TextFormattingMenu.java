@@ -2,6 +2,7 @@ package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses;
 
 import java.util.Scanner;
 
+import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.CenterFormat;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.JustifyFormat;
 
 public class TextFormattingMenu {
@@ -67,7 +68,9 @@ public class TextFormattingMenu {
 
                 break;
             case 3:
-
+                var center = new CenterFormat();
+                var getCenterResult = center.formatText(columnSize, words);
+                // getCenterResult.forEach(n -> System.out.println(n));
                 break;
             case 4:
                 var justify = new JustifyFormat();

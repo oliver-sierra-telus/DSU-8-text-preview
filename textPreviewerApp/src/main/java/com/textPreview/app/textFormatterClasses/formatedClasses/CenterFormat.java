@@ -7,30 +7,46 @@ import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.T
 public class CenterFormat extends TextFormarter {
 
     @Override
-    protected ArrayList<String> formatText(int intColumnSize, String[] texStringFormat) {
-        // TODO Auto-generated method stub
+    public ArrayList<String> formatText(int intColumnSize, String[] arrayWords) {
 
-        return new ArrayList<>();
+        ArrayList<String> textInLines = new ArrayList<>();
+        String addSpaces = "";
+        textInLines = lineProcessor(intColumnSize, arrayWords);
+
+        System.out.println("cantidad de columnas: " + intColumnSize);
+        for (int i = 0; i < textInLines.size(); i++) {
+            int totalColumns = textInLines.get(i).length();
+            int whiteSpaces = Math.round((intColumnSize-totalColumns)/2);
+            for (int j = 0; j < whiteSpaces; j++) {
+                addSpaces += " ";
+            }
+            System.out.println("*"+ addSpaces + textInLines.get(i) + addSpaces +"*");
+            addSpaces ="";
+        }
+
+        return null;
         
-        String[] cadenaSplit = texStringFormat.split(" ", 100);
-        
-        ArrayList<String> matrix = new ArrayList<>();
+
+    }
+
+    private ArrayList<String> lineProcessor(int intColumnSize, String[] arrayWords) {
+       
+        ArrayList<String> wordsByLine = new ArrayList<>();
         String miCadena = "";
-        for (int i = 0; i < cadenaSplit.length; i++) {
-            if ((miCadena.length()+cadenaSplit[i].length())<intColumnSize) {
-                miCadena += cadenaSplit[i];
+        for (int i = 0; i < arrayWords.length; i++) {
+            if ((miCadena.length()+arrayWords[i].length())<(intColumnSize-1)) {
+                miCadena += arrayWords[i];
                 miCadena += " ";
             } else {
-                String firstPart = cadenaSplit[i].substring(0,2) + "-";
-                String secondPart = cadenaSplit[i].substring(2);
+                String firstPart = arrayWords[i].substring(0,2) + "-";
+                String secondPart = arrayWords[i].substring(2);
                 miCadena += firstPart;
-                matrix.add(miCadena);
+                wordsByLine.add(miCadena);
                 miCadena = "";
-                miCadena += secondPart;
-                miCadena += " ";
+                miCadena += secondPart + " ";
             }
         }
-        matrix.forEach(element -> System.out.println(element));
+        return wordsByLine;
     }
 
 }
