@@ -7,7 +7,10 @@ import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.T
 public class CenterFormat extends TextFormarter {
 
     @Override
-    public void formatText(int intColumnSize, String texStringFormat) {
+    protected ArrayList<String> formatText(int intColumnSize, String[] texStringFormat) {
+        // TODO Auto-generated method stub
+
+        return new ArrayList<>();
         
         String[] cadenaSplit = texStringFormat.split(" ", 100);
         
