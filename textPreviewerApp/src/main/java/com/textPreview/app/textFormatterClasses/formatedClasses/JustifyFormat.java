@@ -5,18 +5,31 @@ import java.util.ArrayList;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class JustifyFormat extends TextFormarter {
+    private static JustifyFormat justifyFormatInstance;
     private int wordTextIndex = 0;
     private int wordIndex = 0;
 
+    private JustifyFormat(){}
+
+    public static JustifyFormat getInstance(){
+        if(justifyFormatInstance==null){
+            justifyFormatInstance = new JustifyFormat();
+        }
+        return justifyFormatInstance;
+    }
+
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] words){
+        wordTextIndex = 0;
+        wordIndex = 0;
         ArrayList<String> textFormatted= new ArrayList<>();
 
         while(wordIndex!=words.length){
 
             String line = lineGenerator(intColumnSize, words);
             //System.out.println(line);
-            textFormatted.add(line.trim());
+            
+            textFormatted.add(line);
         }
         return textFormatted;
     }
@@ -29,7 +42,7 @@ public class JustifyFormat extends TextFormarter {
         int spacesToAdd = 0;
         int minimumSpaces = 0;
         int spacesAdded = 0;
-        String lineBuilding = "";
+        String lineBuilding = " ";
         String whiteSpace = " ";
 
         do {

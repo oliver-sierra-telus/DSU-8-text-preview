@@ -6,6 +6,17 @@ import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.T
 
 public class LeftFormat extends TextFormarter {
 
+    private static LeftFormat instance;
+
+    public static LeftFormat getInstance() {
+        if(instance == null) {
+            instance = new LeftFormat();
+        }
+        return instance;
+    }
+
+    private LeftFormat(){}
+
     @Override
     protected ArrayList<String> formatText(int intColumnSize, String[] texStringFormat) {
         ArrayList<String> myArray = new ArrayList<String>();
