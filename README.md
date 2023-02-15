@@ -13,24 +13,43 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 maximo 10  (left)
 Lorem ipsum
+
 dolor   sit
+
 amet      ,
+
 consectetur  
+
 adipiscing 
+
 elit
 
 
 maximo 10  (center)
 Lorem ipsum
+
  dolor sit
+ 
     amet ,
+    
  consectetur  
+ 
  adipiscing 
+ 
     elit
     
     
     
 Al inicio, pregunto texto???
+
+Preguntar columnas???? (máximo)
+
 Muestro menú
+
 (4 opciones, y una 5 salir)
+
 salir. 
+
+utilizando maven
+diagrama de clasees
+
