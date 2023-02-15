@@ -13,5 +13,5 @@ public class RightFormat extends TextFormarter {
         return new ArrayList<>();
         
     }
-    
+
 }
