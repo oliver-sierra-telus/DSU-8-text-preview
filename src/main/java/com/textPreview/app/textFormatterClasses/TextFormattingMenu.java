@@ -18,28 +18,30 @@ public class TextFormattingMenu {
     }
 
     public void startMenu() {
+        Scanner in = new Scanner(System.in);
         int option = 0;
+        System.out.println("-----------------------------------------------------");
+        System.out.println("-Ingrese el texto a justificar");
+        textToFormat = in.nextLine();
+        System.out.println();
+        System.out.println("-Ingrese el numero de columnas para el nuevo formato");
+        columnSize = in.nextInt();
+        System.out.println("-----------------------------------------------------");
+        words = splitWords(textToFormat);
         do {
-            Scanner in = new Scanner(System.in);
+            
             option = 0;
-            System.out.println();
-            System.out.println("-Ingrese el texto a justificar");
-            textToFormat = in.nextLine();
-            System.out.println();
-            System.out.println("-Ingrese el numero de columnas para el nuevo formato");
-            columnSize = in.nextInt();
-            words = splitWords(textToFormat);
 
             if(columnSize>=25){
-                System.out.println("-------------------------------");
-                System.out.println("-Cual formato quieres utilizar?");
-                System.out.println("-------------------------------");
-                System.out.println("-1. Justificado a la izquierda");
-                System.out.println("-2. Justificado a la derecha");
-                System.out.println("-3. Centrado");
-                System.out.println("-4. Justificado");
-                System.out.println("-5. Salir");
-                System.out.println();
+                System.out.println("--------------------------------");
+                System.out.println("-Cual formato quieres utilizar?-");
+                System.out.println("--------------------------------");
+                System.out.println("-1. Justificado a la izquierda -");
+                System.out.println("-2. Justificado a la derecha   -");
+                System.out.println("-3. Centrado                   -");
+                System.out.println("-4. Justificado                -");
+                System.out.println("-5. Salir                      -");
+                System.out.println("--------------------------------");
                 option = in.nextInt();
                 justifyText(option);
             }
@@ -81,10 +83,9 @@ public class TextFormattingMenu {
                 paintFormatedText(rightFormatedText, "=");
                 break;
             case 3:
-                TextFormarter center = new CenterFormat();
+                TextFormarter center = CenterFormat.getInstance();
                 ArrayList<String> centerFormatedText = center.formatText(columnSize, words);
                 paintFormatedText(centerFormatedText, "+");
-                //getCenterResult.forEach(n -> System.out.print(n));
                 break;
             case 4:
                 TextFormarter justify = JustifyFormat.getInstance();
