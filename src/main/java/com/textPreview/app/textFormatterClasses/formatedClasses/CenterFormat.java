@@ -1,10 +1,20 @@
-package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses;
+package com.textPreview.app.textFormatterClasses.formatedClasses;
 
 import java.util.ArrayList;
 
-import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormarter;
+import com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class CenterFormat extends TextFormarter {
+
+    //Singleton Pattern
+    private static CenterFormat centerFormat;
+
+    public static CenterFormat getInstance() {
+        if(centerFormat == null) {
+            centerFormat = new CenterFormat();
+        }
+        return centerFormat;
+    }
 
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] arrayWords) {
@@ -23,38 +33,37 @@ public class CenterFormat extends TextFormarter {
             for (int j = 0; j < whiteSpaces; j++) {
                 addSpaces += " ";
             }
+            //revisar que no se pase del numero de columnas
+            
+            String provisional = addSpaces + textInLines.get(i) + addSpaces;
+            if(provisional.length()==intColumnSize){
+                //remover uno
+                System.out.println("cantidad por linea "+ provisional.length());
+                provisional = provisional.substring(0, intColumnSize-1);
+                System.out.println("tamanio remanenete " + provisional.length());
+                // addSpaces = addSpaces.substring(0, addSpaces.length()-1);
+                
+            }
+            linesPrepared.add(provisional);
 
-            // System.out.println("*"+ addSpaces + textInLines.get(i) + addSpaces +"*");
-            linesPrepared.add(addSpaces + textInLines.get(i) + addSpaces);
             addSpaces ="";
-
         }
-        
-
         return linesPrepared;
-
     }
-    
-
 
     private ArrayList<String> lineProcessor(int intColumnSize, String[] arrayWords) {
-       
         ArrayList<String> wordsByLine = new ArrayList<>();
         String miCadena = "";
         for (int i = 0; i < arrayWords.length; i++) {
-            if ((miCadena.length()+arrayWords[i].length())<(intColumnSize-1)) {
+            if ((miCadena.length()+arrayWords[i].length()+1)<(intColumnSize)) {
                 miCadena += arrayWords[i];
                 miCadena += " ";
             } else {
-                String firstPart = arrayWords[i].substring(0,2) + "-";
-                String secondPart = arrayWords[i].substring(2);
-                miCadena += firstPart;
+
                 wordsByLine.add(miCadena);
                 miCadena = "";
-                miCadena += secondPart + " ";
             }
         }
         return wordsByLine;
     }
-
 }
