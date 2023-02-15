@@ -1,9 +1,11 @@
 package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.CenterFormat;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.JustifyFormat;
+import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.LeftFormat;
 
 public class TextFormattingMenu {
     private int columnSize;
@@ -62,8 +64,10 @@ public class TextFormattingMenu {
 
         switch (option) {
             case 1:
-
-                break;
+            TextFormarter myFormat = new LeftFormat();
+            ArrayList<String> myArray = myFormat.formatText(columnSize, words);
+            myArray.forEach(System.out::println);
+            break;
             case 2:
 
                 break;
