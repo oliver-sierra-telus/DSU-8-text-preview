@@ -72,8 +72,8 @@ public class TextFormattingMenu {
         switch (option) {
             case 1:
                 TextFormarter myFormat = LeftFormat.getInstance();
-                ArrayList<String> myArray = myFormat.formatText(columnSize, words);
-                myArray.forEach(System.out::println);
+                var leftText = myFormat.formatText(columnSize, words);
+            paintFormatedText(leftText, "*");
                 break;
             case 2:
                 TextFormarter formater = RightFormat.getInstance();
