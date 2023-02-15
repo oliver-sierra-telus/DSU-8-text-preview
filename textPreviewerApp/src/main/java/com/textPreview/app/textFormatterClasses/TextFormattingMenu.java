@@ -51,10 +51,6 @@ public class TextFormattingMenu {
 
         } while(option!=5);
 
-        
-
-
-
     }
 
     private String[] splitWords(String texStringFormat) {
