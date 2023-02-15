@@ -56,7 +56,6 @@ public class TextFormattingMenu {
     }
 
     private void paintFormatedText(ArrayList<String> rowList, String borderChar) {
-
         String headerFoot = borderChar.repeat(rowList.get(0).length() + 2);
         System.out.println(headerFoot);
         rowList.forEach(e -> {
@@ -72,23 +71,25 @@ public class TextFormattingMenu {
         switch (option) {
             case 1:
                 TextFormarter myFormat = LeftFormat.getInstance();
-                ArrayList<String> myArray = myFormat.formatText(columnSize, words);
-                myArray.forEach(System.out::println);
+                ArrayList<String> leftFormatedText = myFormat.formatText(columnSize, words);
+                //myArray.forEach(System.out::println);
+                paintFormatedText(leftFormatedText, "-");
                 break;
             case 2:
                 TextFormarter formater = RightFormat.getInstance();
-                var righText = formater.formatText(columnSize, words);
-                paintFormatedText(righText, "+");
+                ArrayList<String> rightFormatedText = formater.formatText(columnSize, words);
+                paintFormatedText(rightFormatedText, "=");
                 break;
             case 3:
-                var center = new CenterFormat();
-                var getCenterResult = center.formatText(columnSize, words);
-                getCenterResult.forEach(n -> System.out.print(n));
+                TextFormarter center = new CenterFormat();
+                ArrayList<String> centerFormatedText = center.formatText(columnSize, words);
+                paintFormatedText(centerFormatedText, "+");
+                //getCenterResult.forEach(n -> System.out.print(n));
                 break;
             case 4:
-                var justify = JustifyFormat.getInstance();
-                var prueba = justify.formatText(columnSize, words);
-                paintFormatedText(prueba, "*");
+                TextFormarter justify = JustifyFormat.getInstance();
+                ArrayList<String> justifyFormatedText = justify.formatText(columnSize, words);
+                paintFormatedText(justifyFormatedText, "*");
 
                 // return justify.formatText(columnSize,words);
                 // prueba.forEach(e -> System.out.println(e));

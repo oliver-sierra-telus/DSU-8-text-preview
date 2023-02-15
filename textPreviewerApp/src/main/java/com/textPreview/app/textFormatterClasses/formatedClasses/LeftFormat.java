@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class LeftFormat extends TextFormarter {
-
     private static LeftFormat instance;
 
     public static LeftFormat getInstance() {
@@ -25,6 +24,9 @@ public class LeftFormat extends TextFormarter {
         for (String word : texStringFormat) {
             if (line.length() + word.length() + 1 > intColumnSize) {
                 // Add the current line to the list and reset it
+                while(line.length()!=intColumnSize){
+                    line +=" ";
+                }
                 myArray.add(line);
                 line = "";
             }
@@ -37,6 +39,9 @@ public class LeftFormat extends TextFormarter {
 
         // Add the last line to the list
         if (!line.isEmpty()) {
+            while(line.length()!=intColumnSize){
+                line +=" ";
+            }
             myArray.add(line);
         }
 
