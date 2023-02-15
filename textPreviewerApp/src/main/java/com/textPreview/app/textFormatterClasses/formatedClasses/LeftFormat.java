@@ -8,24 +8,28 @@ public class LeftFormat extends TextFormarter {
 
     @Override
     protected ArrayList<String> formatText(int intColumnSize, String[] texStringFormat) {
-        // TODO Auto-generated method stub
+        ArrayList<String> myArray = new ArrayList<String>();
+        String line = "";
 
-        
-        int length = texStringFormat.length;//Comentado x Oscar
-        int lines = length / intColumnSize;
-
-        if(length % intColumnSize != 0) {  //aqui termino de calcular cuantas lineas voy a tener para imprimir por eso es el limite en el for
-            lines++;
+        for (String word : texStringFormat) {
+            if (line.length() + word.length() + 1 > intColumnSize) {
+                // Add the current line to the list and reset it
+                myArray.add(line);
+                line = "";
+            }
+            if (!line.isEmpty()) {
+                // Add a space between words if the line is not empty
+                line += " ";
+            }
+            line += word;
         }
 
-        for (int i = 0; i < lines; i++) {
-            int start = i * intColumnSize;
-            int end = Math.min(length, start + intColumnSize);
-            System.out.println(texStringFormat[i].substring(start, end));//Comentado x Oscar
+        // Add the last line to the list
+        if (!line.isEmpty()) {
+            myArray.add(line);
         }
-        
 
-        return new ArrayList<>();
+        return myArray;
     }
     
 }
