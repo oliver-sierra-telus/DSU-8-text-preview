@@ -70,7 +70,7 @@ public class TextFormattingMenu {
             case 3:
                 var center = new CenterFormat();
                 var getCenterResult = center.formatText(columnSize, words);
-                // getCenterResult.forEach(n -> System.out.println(n));
+                getCenterResult.forEach(n -> System.out.print(n));
                 break;
             case 4:
                 var justify = new JustifyFormat();
