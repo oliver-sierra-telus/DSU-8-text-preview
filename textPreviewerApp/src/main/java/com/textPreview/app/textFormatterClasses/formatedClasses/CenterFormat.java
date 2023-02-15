@@ -7,11 +7,62 @@ import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.T
 public class CenterFormat extends TextFormarter {
 
     @Override
-    protected ArrayList<String> formatText(int intColumnSize, String[] texStringFormat) {
-        // TODO Auto-generated method stub
+    public ArrayList<String> formatText(int intColumnSize, String[] arrayWords) {
 
-        return new ArrayList<>();
-        
+        ArrayList<String> textInLines = new ArrayList<>();
+        ArrayList<String> linesPrepared = new ArrayList<>();
+        String addSpaces = "";
+
+        textInLines = lineProcessor(intColumnSize, arrayWords);
+
+        linesPrepared.add(writeHeaderAndFooter(intColumnSize, "*"));
+        for (int i = 0; i < textInLines.size(); i++) {
+            
+            int totalColumns = textInLines.get(i).length();
+            int whiteSpaces = Math.round((intColumnSize-totalColumns)/2);
+
+            for (int j = 0; j < whiteSpaces; j++) {
+                addSpaces += " ";
+            }
+
+            // System.out.println("*"+ addSpaces + textInLines.get(i) + addSpaces +"*");
+            linesPrepared.add("*"+ addSpaces + textInLines.get(i) + addSpaces +"*\n");
+            addSpaces ="";
+
+        }
+        linesPrepared.add(writeHeaderAndFooter(intColumnSize,"*"));
+
+        return linesPrepared;
+
     }
-    
+
+    private String writeHeaderAndFooter(int intColumnSize, String kindOfChar) {
+        String line = "";
+        for (int i = 0; i < intColumnSize+3; i++) {
+            line += kindOfChar;
+        }
+        line += "\n";
+        return line;
+    }
+
+    private ArrayList<String> lineProcessor(int intColumnSize, String[] arrayWords) {
+       
+        ArrayList<String> wordsByLine = new ArrayList<>();
+        String miCadena = "";
+        for (int i = 0; i < arrayWords.length; i++) {
+            if ((miCadena.length()+arrayWords[i].length())<(intColumnSize-1)) {
+                miCadena += arrayWords[i];
+                miCadena += " ";
+            } else {
+                String firstPart = arrayWords[i].substring(0,2) + "-";
+                String secondPart = arrayWords[i].substring(2);
+                miCadena += firstPart;
+                wordsByLine.add(miCadena);
+                miCadena = "";
+                miCadena += secondPart + " ";
+            }
+        }
+        return wordsByLine;
+    }
+
 }
