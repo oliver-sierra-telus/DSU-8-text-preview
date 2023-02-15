@@ -75,7 +75,7 @@ public class TextFormattingMenu {
     private void justifyText(int option) {
         switch (option) {
             case 1:
-                TextFormarter myFormat = new LeftFormat();
+                TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> myArray = myFormat.formatText(columnSize, words);
                 myArray.forEach(System.out::println);
             break;
