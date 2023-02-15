@@ -3,6 +3,7 @@ package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses;
 import java.util.Scanner;
 
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.JustifyFormat;
+import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.RightFormat;
 
 public class TextFormattingMenu {
     private int columnSize;
@@ -64,7 +65,9 @@ public class TextFormattingMenu {
 
                 break;
             case 2:
-
+                var rightformat = new RightFormat();
+                var righText = rightformat.formatText(columnSize, words);
+                righText.forEach((r) -> System.out.println(r));
                 break;
             case 3:
 
