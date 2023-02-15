@@ -38,10 +38,7 @@ public class CenterFormat extends TextFormarter {
             String provisional = addSpaces + textInLines.get(i) + addSpaces;
             if(provisional.length()==intColumnSize){
                 //remover uno
-                System.out.println("cantidad por linea "+ provisional.length());
                 provisional = provisional.substring(0, intColumnSize-1);
-                System.out.println("tamanio remanenete " + provisional.length());
-                // addSpaces = addSpaces.substring(0, addSpaces.length()-1);
                 
             }
             linesPrepared.add(provisional);
