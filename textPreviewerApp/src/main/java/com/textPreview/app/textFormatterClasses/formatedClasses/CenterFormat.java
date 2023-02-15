@@ -46,20 +46,24 @@ public class CenterFormat extends TextFormarter {
     }
 
     private ArrayList<String> lineProcessor(int intColumnSize, String[] arrayWords) {
-       
+        String firstPart;
+        String secondPart;
         ArrayList<String> wordsByLine = new ArrayList<>();
         String miCadena = "";
         for (int i = 0; i < arrayWords.length; i++) {
-            if ((miCadena.length()+arrayWords[i].length())<(intColumnSize-1)) {
+            if ((miCadena.length()+arrayWords[i].length())<(intColumnSize-2)) {
                 miCadena += arrayWords[i];
                 miCadena += " ";
             } else {
-                String firstPart = arrayWords[i].substring(0,2) + "-";
-                String secondPart = arrayWords[i].substring(2);
+                firstPart = arrayWords[i].substring(0,2) + "-";
+                secondPart = arrayWords[i].substring(2);
                 miCadena += firstPart;
                 wordsByLine.add(miCadena);
                 miCadena = "";
                 miCadena += secondPart + " ";
+                if(i==(arrayWords.length-1)){
+                    wordsByLine.add(secondPart);
+                }
             }
         }
         return wordsByLine;
