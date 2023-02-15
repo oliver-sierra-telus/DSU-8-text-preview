@@ -26,6 +26,8 @@ public class RightFormat extends TextFormarter {
             String line = generateLine(intColumnSize, wordsArray);
             textFormatted.add(line);
         }
+        wordTextIndex = 0;
+        wordIndex = 0;
         return textFormatted;
     }
 
