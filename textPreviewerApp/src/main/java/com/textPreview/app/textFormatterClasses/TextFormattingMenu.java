@@ -3,6 +3,7 @@ package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.CenterFormat;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.JustifyFormat;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.LeftFormat;
 
@@ -74,7 +75,7 @@ public class TextFormattingMenu {
     private void justifyText(int option) {
         switch (option) {
             case 1:
-                TextFormarter myFormat = new LeftFormat();
+                TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> myArray = myFormat.formatText(columnSize, words);
                 myArray.forEach(System.out::println);
             break;
@@ -82,7 +83,9 @@ public class TextFormattingMenu {
 
                 break;
             case 3:
-
+                var center = new CenterFormat();
+                var getCenterResult = center.formatText(columnSize, words);
+                getCenterResult.forEach(n -> System.out.print(n));
                 break;
             case 4:
                 var justify = JustifyFormat.getInstance();
