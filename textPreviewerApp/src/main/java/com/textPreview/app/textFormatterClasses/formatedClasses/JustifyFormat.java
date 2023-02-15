@@ -59,7 +59,7 @@ public class JustifyFormat extends TextFormarter {
             lineBuilding += words[wordTextIndex];
             wordTextIndex++;
             lineBuilding += " ";
-            if (spacesAdded != spaceDistribution) {
+            if(spacesAdded != spaceDistribution) {
                 lineBuilding += whiteSpace.repeat(spacesToAdd);
                 spacesAdded += spacesToAdd;
             }
