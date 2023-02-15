@@ -12,10 +12,22 @@ public class App
     public static void main( String[] args )
     {
         var prueba = new JustifyFormat();
-        String cadena = "Donec quis mi eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec hendrerit dolor. Donec convallis suscipit porta. Donec quis mi eros. Suspendisse aliquam ornare turpis, vel imperdiet erat elementum vitae. Nam accumsan risus eu risus tincidunt convallis. Donec varius congue mi, vitae pellentesque risus luctus sit amet. Suspendisse a interdum nisi, sed eleifend metus. Nunc sollicitudin quis dolor quis porta. Morbi fringilla quis tellus id finibus. Proin ornare eros eget mauris sodales, sed ornare ante dapibus.";
+        String cadena = "Hola a todos esta es ipsum dolor sit amet, consectetur adipiscing elit. Duis nec hendrerit dolor. Donec convallis suscipit porta. Donec quis mi eros. Suspendisse aliquam ornare turpis, vel imperdiet erat elementum vitae. Nam accumsan risus eu risus tincidunt convallis. Donec varius congue mi, vitae pellentesque risus luctus sit amet. Suspendisse a interdum nisi, sed eleifend metus. Nunc sollicitudin quis dolor quis porta. Morbi fringilla quis tellus id finibus. Proin ornare eros eget mauris sodales, sed ornare ante dapibus.";
 
-        TextFormattingMenu Menu = new TextFormattingMenu();
-        Menu.startMenu();
+        String cadena2 = "Hola a todos esta es una. cadena de prueba espero que con esta modificacion si funque esta cosa jaja";
+        String caena[] = cadena.trim().split("[,.' ]+");
+
+
+        //TextFormattingMenu Menu = new TextFormattingMenu();
+        //Menu.startMenu();
+
+        JustifyFormat a = new JustifyFormat();
+        var array = a.formatText(35, caena);
+
+        array.forEach(e -> System.out.println(e.toString()));
+
+
+
 
 
         //prueba.formatText(70, cadena);

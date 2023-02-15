@@ -55,19 +55,42 @@ public class JustifyFormat extends TextFormarter {
         spacesToAdd = Math.ceilDiv(spaceDistribution, minimumSpaces);
         int aux = spaceDistribution % spacesToAdd;
 
-        for (int i = 0; i < wordCounter; i++) { 
+        /*for (int i = 0; i < wordCounter; i++) { 
+            Boolean flag = false;
             lineBuilding += words[wordTextIndex];
             wordTextIndex++;
             lineBuilding += " ";
             if(spacesAdded != spaceDistribution) {
                 lineBuilding += whiteSpace.repeat(spacesToAdd);
                 spacesAdded += spacesToAdd;
+                flag = true;
             }
             //Bug, a veces se ejecutan los 2 ifs a la vez
-            if ((spaceDistribution - spacesAdded == aux)) {
+            if ((spaceDistribution - spacesAdded == aux) && !flag) {
                 lineBuilding += whiteSpace.repeat(aux);
                 spacesAdded += aux;
             }
+        }
+        */ 
+
+        for (int i = 0; i < wordCounter; i++) { 
+            Boolean flag = false;
+            lineBuilding += words[wordTextIndex];
+            wordTextIndex++;
+            lineBuilding += " ";
+            //Bug, a veces se ejecutan los 2 ifs a la vez
+            if ((spaceDistribution - spacesAdded == aux) ) {
+                lineBuilding += whiteSpace.repeat(aux);
+                spacesAdded += aux;
+            }
+            
+            if(spacesAdded != spaceDistribution) {
+                lineBuilding += whiteSpace.repeat(spacesToAdd);
+                spacesAdded += spacesToAdd;
+
+                flag = true;
+            }
+            
         }
 
         
