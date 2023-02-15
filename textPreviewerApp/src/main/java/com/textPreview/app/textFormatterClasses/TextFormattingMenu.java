@@ -44,9 +44,7 @@ public class TextFormattingMenu {
                 justifyText(option);
             }
             else {
-                System.out.println("Ingresa un numero de columnas mayor a 25");
-                System.out.println();
-                System.out.println();
+                System.out.println("**Ingresa un numero de columnas mayor a 25**");
             }
 
         } while(option!=5);
