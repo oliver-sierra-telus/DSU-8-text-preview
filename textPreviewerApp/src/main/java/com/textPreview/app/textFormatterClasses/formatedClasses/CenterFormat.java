@@ -9,38 +9,25 @@ public class CenterFormat extends TextFormarter {
     @Override
     public void formatText(int intColumnSize, String texStringFormat) {
         
-        // String[] cadenaSplit = texStringFormat.split(" ", 100);
-        char[] cadenaSplit = new char[texStringFormat.length()];
+        String[] cadenaSplit = texStringFormat.split(" ", 100);
         
-        for (int i = 0; i < texStringFormat.length(); i++) {
-            cadenaSplit[i] = texStringFormat.charAt(i);
-        }
-
-        int remanente = intColumnSize;
-        String myNewText = "";
-        String textWithSpace = "";
-        int whiteSpaces;
-
+        ArrayList<String> matrix = new ArrayList<>();
+        String miCadena = "";
         for (int i = 0; i < cadenaSplit.length; i++) {
-            
-            if(remanente >= 0) {
-                myNewText += cadenaSplit[i];
-                remanente = remanente - 1;
+            if ((miCadena.length()+cadenaSplit[i].length())<intColumnSize) {
+                miCadena += cadenaSplit[i];
+                miCadena += " ";
             } else {
-                whiteSpaces = remanente;
-                myNewText+="\n";
-                remanente = intColumnSize;
-                i--;
-                for (int j = 0; j < whiteSpaces; j++) {
-                    textWithSpace+=" ";
-                }
-                textWithSpace += myNewText;
-                System.out.print(textWithSpace);
-                myNewText = "";
-                textWithSpace = "";
+                String firstPart = cadenaSplit[i].substring(0,2) + "-";
+                String secondPart = cadenaSplit[i].substring(2);
+                miCadena += firstPart;
+                matrix.add(miCadena);
+                miCadena = "";
+                miCadena += secondPart;
+                miCadena += " ";
             }
-            
         }
+        matrix.forEach(element -> System.out.println(element));
     }
 
 }
