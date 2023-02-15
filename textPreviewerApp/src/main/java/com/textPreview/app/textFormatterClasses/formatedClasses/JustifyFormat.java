@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class JustifyFormat extends TextFormarter {
-    private static int wordTextIndex = 0;
-    private static int wordIndex = 0;
+    private int wordTextIndex = 0;
+    private int wordIndex = 0;
 
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] words){

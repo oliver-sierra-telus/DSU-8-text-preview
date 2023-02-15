@@ -16,30 +16,31 @@ public class TextFormattingMenu {
 
     }
 
+
     public void startMenu() {
-        Scanner in = new Scanner(System.in);
         int option = 0;
+        do{
+            Scanner in = new Scanner(System.in);
+            option = 0;
 
+            System.out.println("Ingrese el texto a justificar");
+            textToFormat = in.nextLine();
+            System.out.println("Ingrese el numero de columnas para el nuevo formato");
+            columnSize = in.nextInt();
+            words = splitWords(textToFormat);
 
-        System.out.println("Ingrese el texto a justificar");
-        textToFormat = in.nextLine();
+            System.out.println();
+            System.out.println();
+            System.out.println("Cual formato quieres utilizar?");
+            System.out.println("1. Justificado a la izquierda");
+            System.out.println("2. Justificado a la derecha");
+            System.out.println("3. Centrado");
+            System.out.println("4. Justificado");
+            System.out.println("5. Salir");
+            option = in.nextInt();
 
-        System.out.println("Ingrese el numero de columnas para el nuevo formato");
-        columnSize = in.nextInt();
-
-        words = splitWords(textToFormat);
-
-        System.out.println();
-        System.out.println();
-        System.out.println("Cual formato quieres utilizar?");
-        System.out.println("1. Justificado a la izquierda");
-        System.out.println("2. Justificado a la derecha");
-        System.out.println("3. Centrado");
-        System.out.println("4. Justificado");
-        System.out.println("5. Salir");
-        option = in.nextInt();
-
-        justifyText(option);
+            justifyText(option);
+        } while(option!=5);
 
         
 
@@ -60,13 +61,23 @@ public class TextFormattingMenu {
         
     }
 
-    private void justifyText(int option) {
+    private void paintFormatedText(ArrayList<String> rowList, String borderChar){
 
+        String headerFoot = borderChar.repeat(rowList.get(0).length()+2);
+        System.out.println(headerFoot);
+        rowList.forEach(e -> {
+            System.out.print(borderChar); System.out.print(e); System.out.println(borderChar);
+        });
+        System.out.println(headerFoot);
+
+    }
+
+    private void justifyText(int option) {
         switch (option) {
             case 1:
-            TextFormarter myFormat = new LeftFormat();
-            ArrayList<String> myArray = myFormat.formatText(columnSize, words);
-            myArray.forEach(System.out::println);
+                TextFormarter myFormat = new LeftFormat();
+                ArrayList<String> myArray = myFormat.formatText(columnSize, words);
+                myArray.forEach(System.out::println);
             break;
             case 2:
                 var rightformat = new RightFormat();
@@ -79,9 +90,10 @@ public class TextFormattingMenu {
             case 4:
                 var justify = new JustifyFormat();
                 var prueba = justify.formatText(columnSize, words);
-                prueba.forEach((n)-> System.out.println(n));
+                paintFormatedText(prueba,"*");
                 
                 //return justify.formatText(columnSize,words);
+                //prueba.forEach(e -> System.out.println(e));
 
                 break;
 
