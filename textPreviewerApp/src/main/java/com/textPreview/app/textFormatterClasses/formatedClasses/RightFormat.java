@@ -8,6 +8,15 @@ public class RightFormat extends TextFormarter {
     private int wordTextIndex = 0;
     private int wordIndex = 0;
 
+    private static RightFormat intancia;
+
+    public static RightFormat getInstance(){
+        if(intancia == null){
+            intancia = new RightFormat();
+        }
+        return intancia;
+    }
+
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] wordsArray) {
 
@@ -50,7 +59,7 @@ public class RightFormat extends TextFormarter {
             wordTextIndex++;
 
             if(i+1 == wordCounter){
-                lineBuilding += "|";
+                //lineBuilding += "|";
             }
             else{
                 lineBuilding += space;

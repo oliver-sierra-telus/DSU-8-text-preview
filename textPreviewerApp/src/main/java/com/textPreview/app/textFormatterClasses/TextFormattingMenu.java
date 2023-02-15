@@ -17,10 +17,9 @@ public class TextFormattingMenu {
 
     }
 
-
     public void startMenu() {
         int option = 0;
-        do{
+        do {
             Scanner in = new Scanner(System.in);
             option = 0;
             System.out.println();
@@ -56,12 +55,14 @@ public class TextFormattingMenu {
         return texStringFormat.trim().split("[,.' ]+");
     }
 
-    private void paintFormatedText(ArrayList<String> rowList, String borderChar){
+    private void paintFormatedText(ArrayList<String> rowList, String borderChar) {
 
-        String headerFoot = borderChar.repeat(rowList.get(0).length()+2);
+        String headerFoot = borderChar.repeat(rowList.get(0).length() + 2);
         System.out.println(headerFoot);
         rowList.forEach(e -> {
-            System.out.print(borderChar); System.out.print(e); System.out.println(borderChar);
+            System.out.print(borderChar);
+            System.out.print(e);
+            System.out.println(borderChar);
         });
         System.out.println(headerFoot);
 
@@ -73,11 +74,11 @@ public class TextFormattingMenu {
                 TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> myArray = myFormat.formatText(columnSize, words);
                 myArray.forEach(System.out::println);
-            break;
+                break;
             case 2:
-                var rightformat = new RightFormat();
-                var righText = rightformat.formatText(columnSize, words);
-                righText.forEach((r) -> System.out.println(r));
+                TextFormarter formater = RightFormat.getInstance();
+                var righText = formater.formatText(columnSize, words);
+                paintFormatedText(righText, "+");
                 break;
             case 3:
                 var center = new CenterFormat();
@@ -87,10 +88,10 @@ public class TextFormattingMenu {
             case 4:
                 var justify = JustifyFormat.getInstance();
                 var prueba = justify.formatText(columnSize, words);
-                paintFormatedText(prueba,"*");
-                
-                //return justify.formatText(columnSize,words);
-                //prueba.forEach(e -> System.out.println(e));
+                paintFormatedText(prueba, "*");
+
+                // return justify.formatText(columnSize,words);
+                // prueba.forEach(e -> System.out.println(e));
 
                 break;
 
