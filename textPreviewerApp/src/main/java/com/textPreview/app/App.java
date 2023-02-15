@@ -1,5 +1,6 @@
 package textPreviewerApp.src.main.java.com.textPreview.app;
 
+import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormattingMenu;
 import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses.JustifyFormat;
 
 /**
@@ -11,13 +12,14 @@ public class App
     public static void main( String[] args )
     {
         var prueba = new JustifyFormat();
-        String cadena = "normal distribution of letters as "+
-        "readable content of a page when looking at its layout. The point of using Lorem Ipsum is "+
-        "that it has a more or less reader will be distracted by the opposed to using 'Content here, "+
-        "content here', making it look like readable English. Many desktop publishing packages and web";
+        String cadena = "Donec quis mi eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec hendrerit dolor. Donec convallis suscipit porta. Donec quis mi eros. Suspendisse aliquam ornare turpis, vel imperdiet erat elementum vitae. Nam accumsan risus eu risus tincidunt convallis. Donec varius congue mi, vitae pellentesque risus luctus sit amet. Suspendisse a interdum nisi, sed eleifend metus. Nunc sollicitudin quis dolor quis porta. Morbi fringilla quis tellus id finibus. Proin ornare eros eget mauris sodales, sed ornare ante dapibus.";
+
+        TextFormattingMenu Menu = new TextFormattingMenu();
+        Menu.startMenu();
 
 
-        prueba.formatText(40, cadena);
+        //prueba.formatText(70, cadena);
+
 
     }
 }
