@@ -7,11 +7,14 @@
   <version>1.0-SNAPSHOT</version>
   <name>textPreviewerApp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-    <maven.compiler.source>15</maven.compiler.source>
-    <maven.compiler.target>15</maven.compiler.target>
-  <dependencies
+  
+<properties>
+    <maven.compiler.target>19</maven.compiler.target>
+    <maven.compiler.source>19</maven.compiler.source>
 </properties>
+
+  <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

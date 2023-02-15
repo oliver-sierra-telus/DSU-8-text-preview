@@ -1,8 +1,8 @@
-package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses;
+package com.textPreview.app.textFormatterClasses.formatedClasses;
 
 import java.util.ArrayList;
 
-import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormarter;
+import com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class CenterFormat extends TextFormarter {
 
@@ -16,27 +16,18 @@ public class CenterFormat extends TextFormarter {
         textInLines = lineProcessor(intColumnSize, arrayWords);
 
         for (int i = 0; i < textInLines.size(); i++) {
-            
             int totalColumns = textInLines.get(i).length();
             int whiteSpaces = Math.round((intColumnSize-totalColumns)/2);
-
             for (int j = 0; j < whiteSpaces; j++) {
                 addSpaces += " ";
             }
-
-            // System.out.println("*"+ addSpaces + textInLines.get(i) + addSpaces +"*");
             linesPrepared.add(addSpaces + textInLines.get(i) + addSpaces);
             addSpaces ="";
 
         }
-        
-
         return linesPrepared;
-
     }
     
-
-
     private ArrayList<String> lineProcessor(int intColumnSize, String[] arrayWords) {
        
         ArrayList<String> wordsByLine = new ArrayList<>();

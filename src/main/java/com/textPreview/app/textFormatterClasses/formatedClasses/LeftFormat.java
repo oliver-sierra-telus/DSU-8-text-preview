@@ -1,8 +1,8 @@
-package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.formatedClasses;
+package com.textPreview.app.textFormatterClasses.formatedClasses;
 
 import java.util.ArrayList;
 
-import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.TextFormarter;
+import com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class LeftFormat extends TextFormarter {
     private static LeftFormat instance;

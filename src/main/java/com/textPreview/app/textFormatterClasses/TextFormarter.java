@@ -1,4 +1,4 @@
-package textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses;
+package com.textPreview.app.textFormatterClasses;
 
 import java.util.ArrayList;
 
