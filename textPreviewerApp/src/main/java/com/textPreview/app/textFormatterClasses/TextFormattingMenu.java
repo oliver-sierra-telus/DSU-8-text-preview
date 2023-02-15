@@ -11,6 +11,7 @@ public class TextFormattingMenu {
     private int columnSize;
     private String[] words;
     private String textToFormat;
+    CenterFormat center;
 
     public TextFormattingMenu() {
 
@@ -83,9 +84,10 @@ public class TextFormattingMenu {
 
                 break;
             case 3:
-                var center = new CenterFormat();
+                center = CenterFormat.getInstance();
                 var getCenterResult = center.formatText(columnSize, words);
-                getCenterResult.forEach(n -> System.out.print(n));
+                paintFormatedText(getCenterResult, "*");
+                // getCenterResult.forEach(n -> System.out.print(n));
                 break;
             case 4:
                 var justify = new JustifyFormat();

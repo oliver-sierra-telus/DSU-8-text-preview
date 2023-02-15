@@ -6,6 +6,16 @@ import textPreviewerApp.src.main.java.com.textPreview.app.textFormatterClasses.T
 
 public class CenterFormat extends TextFormarter {
 
+    //Singleton Pattern
+    private static CenterFormat centerFormat;
+
+    public static CenterFormat getInstance() {
+        if(centerFormat == null) {
+            centerFormat = new CenterFormat();
+        }
+        return centerFormat;
+    }
+
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] arrayWords) {
 
@@ -15,7 +25,6 @@ public class CenterFormat extends TextFormarter {
 
         textInLines = lineProcessor(intColumnSize, arrayWords);
 
-        linesPrepared.add(writeHeaderAndFooter(intColumnSize, "*"));
         for (int i = 0; i < textInLines.size(); i++) {
             
             int totalColumns = textInLines.get(i).length();
@@ -25,24 +34,11 @@ public class CenterFormat extends TextFormarter {
                 addSpaces += " ";
             }
 
-            // System.out.println("*"+ addSpaces + textInLines.get(i) + addSpaces +"*");
-            linesPrepared.add("*"+ addSpaces + textInLines.get(i) + addSpaces +"*\n");
+            linesPrepared.add(addSpaces + textInLines.get(i) + addSpaces + " ");
+
             addSpaces ="";
-
         }
-        linesPrepared.add(writeHeaderAndFooter(intColumnSize,"*"));
-
         return linesPrepared;
-
-    }
-
-    private String writeHeaderAndFooter(int intColumnSize, String kindOfChar) {
-        String line = "";
-        for (int i = 0; i < intColumnSize+3; i++) {
-            line += kindOfChar;
-        }
-        line += "\n";
-        return line;
     }
 
     private ArrayList<String> lineProcessor(int intColumnSize, String[] arrayWords) {
@@ -68,5 +64,4 @@ public class CenterFormat extends TextFormarter {
         }
         return wordsByLine;
     }
-
 }
