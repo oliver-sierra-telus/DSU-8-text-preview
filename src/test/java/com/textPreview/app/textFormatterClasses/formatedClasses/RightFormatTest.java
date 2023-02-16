@@ -10,6 +10,7 @@ import com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class RightFormatTest {
     private static RightFormat intancia;
+
     @Test
     public void shouldSingleton() {
         TextFormarter myFormat = RightFormat.getInstance();
@@ -18,8 +19,8 @@ public class RightFormatTest {
     }
 
     @Test
-    public void shouldSplitWords(){
-        String[] words = {"Hola", "Andres", "Cordova"};
+    public void shouldSplitWords() {
+        String[] words = { "Hola", "Andres", "Cordova" };
         String text = "Hola, Andres. Cordova";
         String[] wordsSplit;
 
@@ -27,13 +28,13 @@ public class RightFormatTest {
 
         assertArrayEquals(words, wordsSplit);
     }
-    
+
     @Test
     public void shouldRightFormat() {
         RightFormat rightFormat = new RightFormat();
 
         String mySentence = "Hola a todos esta es una prueba de nuestro test para justificar a la derecha.";
-        String [] myArraySentence = mySentence.trim().split("[,.' ]+");
+        String[] myArraySentence = mySentence.trim().split("[,.' ]+");
         ArrayList<String> expected = new ArrayList<>();
         expected.add(0, "   Hola a todos esta");
         expected.add(1, "    es una prueba de");
@@ -45,11 +46,11 @@ public class RightFormatTest {
     }
 
     @Test
-    public void shouldSameSize(){
+    public void shouldSameSize() {
         RightFormat rightFormat = new RightFormat();
 
         String mySentence = "Hola a todos esta es una prueba de nuestro test para justificar a la derecha.";
-        String [] myArraySentence = mySentence.trim().split("[,.' ]+");
+        String[] myArraySentence = mySentence.trim().split("[,.' ]+");
         ArrayList<String> expected = rightFormat.formatText(20, myArraySentence);
 
         int num = expected.size();
