@@ -29,27 +29,27 @@ public class TextFormattingMenu {
             words = splitWords(textToFormat);
             System.out.println();
             System.out.println("-Enter the amount of columns to the new format:");
-            // tiene que ser un rango entre 10 y 50
+            // tiene que ser un rango entre 20 y 50
             while (columnSize < 20 || columnSize > 50) {
                 System.out.print("\tYour option: ");
                 columnSize = in.nextInt();
             }
             do {
-                System.out.println("|------------------------------------------|");
+                System.out.println("____________________________________________");
                 System.out.println("| Select your prefered justification style:|");
-                System.out.println("|------------------------------------------|");
+                System.out.println("|__________________________________________|");
                 System.out.println("| 1. Left justified                        |");
                 System.out.println("| 2. Right justified                       |");
                 System.out.println("| 3. Center justified                      |");
                 System.out.println("| 4. Justified                             |");
                 System.out.println("| 5. Salir                                 |");
-                System.out.println("|------------------------------------------|");
+                System.out.println("|__________________________________________|");
                 option = in.nextInt();
                 justifyText(option);
             } while (option!=5);
         } catch (Exception e) {
             System.out.println("Something went wrong.....");
-            
+
         }
     }
 
@@ -75,7 +75,7 @@ public class TextFormattingMenu {
                 TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> leftFormatedText = myFormat.formatText(columnSize, words);
                 // myArray.forEach(System.out::println);
-                paintFormatedText(leftFormatedText, "°");
+                paintFormatedText(leftFormatedText, "#");
                 break;
             case 2:
                 TextFormarter formater = RightFormat.getInstance();
@@ -93,10 +93,10 @@ public class TextFormattingMenu {
                 paintFormatedText(justifyFormatedText, "*");
                 break;
             case 5:
-                System.out.println("Saliendo...");
+                System.out.println("Finishin program...");
                 break;
             default:
-                System.out.println("Ingresa una opcion valida");
+                System.out.println("Use a valid option");
                 break;
         }
     }
