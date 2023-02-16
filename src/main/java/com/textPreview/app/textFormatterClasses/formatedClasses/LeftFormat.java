@@ -14,7 +14,7 @@ public class LeftFormat extends TextFormarter {
         return instance;
     }
 
-    private LeftFormat(){}
+    LeftFormat(){}
 
     @Override
     protected ArrayList<String> formatText(int intColumnSize, String[] texStringFormat) {
