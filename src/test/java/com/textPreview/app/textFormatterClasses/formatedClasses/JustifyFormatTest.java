@@ -22,4 +22,11 @@ public class JustifyFormatTest {
         TextFormarter testing = JustifyFormat.getInstance();
         assertNotNull((testing));
     }
+    
+    @Test
+    public void testingSingletonClass() {
+        TextFormarter justifyInstance1 = JustifyFormat.getInstance();
+        TextFormarter justifyInstance2 = JustifyFormat.getInstance();
+        assertEquals(justifyInstance1,justifyInstance2);
+    }
 }
