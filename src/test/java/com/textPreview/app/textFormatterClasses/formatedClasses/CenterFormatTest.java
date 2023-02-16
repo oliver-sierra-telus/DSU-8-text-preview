@@ -16,7 +16,7 @@ public class CenterFormatTest {
         String mySentence = "Donec quis mi eros Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec hendrerit dolor. Donec convallis";
         String [] myArraySentence = mySentence.trim().split("[,.' ]+");
         ArrayList<String> expectedArray = new ArrayList<>();
-        //[ Donec quis mi eros,        Lorem       ,   ipsum dolor sit  ,         amet       ,     consectetur    ,      adipiscing    ,    elit Duis nec   ,      hendrerit     ,     dolor Donec    ,      convallis     ]
+        
         String[] expectedResult = {" Donec quis mi eros","       Lorem       ","  ipsum dolor sit  ","        amet       ","    consectetur    ","     adipiscing    ","   elit Duis nec   ","     hendrerit     ","    dolor Donec    ","     convallis     "};
         
         for (int i = 0; i < expectedResult.length; i++) {
