@@ -37,7 +37,6 @@ public class CenterFormat extends TextFormarter {
             linesPrepared.add(provisional);
             addSpaces ="";
         }
-        System.out.println(linesPrepared.toString());
         return linesPrepared;
     }
 
