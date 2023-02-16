@@ -18,7 +18,6 @@ public class CenterFormat extends TextFormarter {
 
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] arrayWords) {
-
         ArrayList<String> textInLines = new ArrayList<>();
         ArrayList<String> linesPrepared = new ArrayList<>();
         String addSpaces = "";
@@ -39,7 +38,6 @@ public class CenterFormat extends TextFormarter {
                 provisional = provisional.substring(0, intColumnSize-1);
             }
             linesPrepared.add(provisional);
-
             addSpaces ="";
         }
         return linesPrepared;
