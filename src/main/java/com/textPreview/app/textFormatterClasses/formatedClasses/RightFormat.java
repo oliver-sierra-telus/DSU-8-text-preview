@@ -9,8 +9,8 @@ public class RightFormat extends TextFormarter {
     private int wordIndex = 0;
     private static RightFormat intancia;
 
-    public static RightFormat getInstance(){
-        if(intancia == null){
+    public static RightFormat getInstance() {
+        if (intancia == null) {
             intancia = new RightFormat();
         }
         return intancia;
@@ -18,15 +18,15 @@ public class RightFormat extends TextFormarter {
 
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] wordsArray) {
-        ArrayList<String> textFormatted= new ArrayList<>();
-        while(wordIndex!=wordsArray.length){
+        ArrayList<String> textFormatted = new ArrayList<>();
+        while (wordIndex != wordsArray.length) {
             String line = generateLine(intColumnSize, wordsArray);
             textFormatted.add(line);
         }
         return textFormatted;
     }
 
-    public String generateLine(int intColumnSize, String words[]){
+    public String generateLine(int intColumnSize, String words[]) {
         int wordCounter = 0;
         int spaceDistribution = 0;
         int spaceCounter = 0;
@@ -37,7 +37,7 @@ public class RightFormat extends TextFormarter {
             spaceCounter += words[wordIndex].length() + 1;
             wordIndex++;
             wordCounter++;
-            if (wordIndex == words.length){
+            if (wordIndex == words.length) {
                 break;
             }
         } while ((spaceCounter + words[wordIndex].length() < intColumnSize));
@@ -49,14 +49,12 @@ public class RightFormat extends TextFormarter {
         for (int i = 0; i < wordCounter; i++) {
             lineBuilding += words[wordTextIndex];
             wordTextIndex++;
-            if(i+1 == wordCounter){
-                
-            }
-            else{
+            if (i + 1 == wordCounter) {
+
+            } else {
                 lineBuilding += space;
             }
         }
         return lineBuilding;
     }
 }
-
