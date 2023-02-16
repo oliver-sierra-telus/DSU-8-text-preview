@@ -49,6 +49,7 @@ public class TextFormattingMenu {
             } while (option!=5);
         } catch (Exception e) {
             System.out.println("Something went wrong.....");
+            
         }
     }
 

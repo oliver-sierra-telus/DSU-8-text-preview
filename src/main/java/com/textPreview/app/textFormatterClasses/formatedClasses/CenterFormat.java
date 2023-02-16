@@ -6,11 +6,11 @@ import com.textPreview.app.textFormatterClasses.TextFormarter;
 
 public class CenterFormat extends TextFormarter {
 
-    //Singleton Pattern
+    // Singleton Pattern
     private static CenterFormat centerFormat;
 
     public static CenterFormat getInstance() {
-        if(centerFormat == null) {
+        if (centerFormat == null) {
             centerFormat = new CenterFormat();
         }
         return centerFormat;
@@ -26,21 +26,17 @@ public class CenterFormat extends TextFormarter {
         textInLines = lineProcessor(intColumnSize, arrayWords);
 
         for (int i = 0; i < textInLines.size(); i++) {
-            
             int totalColumns = textInLines.get(i).length();
-            int whiteSpaces = Math.round((intColumnSize-totalColumns)/2);
-
+            int whiteSpaces = Math.round((intColumnSize - totalColumns) / 2);
             for (int j = 0; j < whiteSpaces; j++) {
                 addSpaces += " ";
             }
-    
             String provisional = addSpaces + textInLines.get(i) + addSpaces;
-            if(provisional.length()==intColumnSize){
-                provisional = provisional.substring(0, intColumnSize-1);
+            if (provisional.length() == intColumnSize) {
+                provisional = provisional.substring(0, intColumnSize - 1);
             }
             linesPrepared.add(provisional);
-
-            addSpaces ="";
+            addSpaces = "";
         }
         return linesPrepared;
     }
@@ -49,11 +45,12 @@ public class CenterFormat extends TextFormarter {
         ArrayList<String> wordsByLine = new ArrayList<>();
         String miCadena = "";
         for (int i = 0; i < arrayWords.length; i++) {
-            if ((miCadena.length()+arrayWords[i].length()+1)<(intColumnSize)) {
+            if ((miCadena.length() + arrayWords[i].length() + 1) < (intColumnSize)) {
                 miCadena += arrayWords[i];
                 miCadena += " ";
             } else {
                 wordsByLine.add(miCadena);
+                wordsByLine.add(arrayWords[i]);
                 miCadena = "";
             }
         }
