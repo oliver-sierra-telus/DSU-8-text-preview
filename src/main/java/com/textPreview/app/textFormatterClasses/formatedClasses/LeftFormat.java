@@ -23,7 +23,6 @@ public class LeftFormat extends TextFormarter {
 
         for (String word : texStringFormat) {
             if (line.length() + word.length() + 1 > intColumnSize) {
-                // Add the current line to the list and reset it
                 while(line.length()!=intColumnSize){
                     line +=" ";
                 }
@@ -31,13 +30,11 @@ public class LeftFormat extends TextFormarter {
                 line = "";
             }
             if (!line.isEmpty()) {
-                // Add a space between words if the line is not empty
                 line += " ";
             }
             line += word;
         }
 
-        // Add the last line to the list
         if (!line.isEmpty()) {
             while(line.length()!=intColumnSize){
                 line +=" ";
@@ -47,6 +44,4 @@ public class LeftFormat extends TextFormarter {
 
         return myArray;
     }
-    
 }
-

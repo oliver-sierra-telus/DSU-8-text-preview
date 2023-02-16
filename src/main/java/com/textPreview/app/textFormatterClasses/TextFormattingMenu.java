@@ -29,7 +29,6 @@ public class TextFormattingMenu {
             words = splitWords(textToFormat);
             System.out.println();
             System.out.println("-Enter the amount of columns to the new format:");
-            // tiene que ser un rango entre 20 y 50
             while (columnSize < 20 || columnSize > 50) {
                 System.out.print("\tYour option: ");
                 columnSize = in.nextInt();
@@ -46,10 +45,10 @@ public class TextFormattingMenu {
                 System.out.println("|__________________________________________|");
                 option = in.nextInt();
                 justifyText(option);
+                Thread.sleep(1000);
             } while (option!=5);
         } catch (Exception e) {
             System.out.println("Something went wrong.....");
-
         }
     }
 
@@ -66,7 +65,6 @@ public class TextFormattingMenu {
             System.out.println(borderChar);
         });
         System.out.println(headerFoot);
-
     }
 
     private void justifyText(int option) {
@@ -74,7 +72,6 @@ public class TextFormattingMenu {
             case 1:
                 TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> leftFormatedText = myFormat.formatText(columnSize, words);
-                // myArray.forEach(System.out::println);
                 paintFormatedText(leftFormatedText, "#");
                 break;
             case 2:
@@ -93,7 +90,7 @@ public class TextFormattingMenu {
                 paintFormatedText(justifyFormatedText, "*");
                 break;
             case 5:
-                System.out.println("Finishin program...");
+                System.out.println("Finishing program . . . BYE BYE.");
                 break;
             default:
                 System.out.println("Use a valid option");

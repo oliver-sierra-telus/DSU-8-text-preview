@@ -53,16 +53,12 @@ public class JustifyFormat extends TextFormarter {
 
         spaceCounter--;
 
-        // Espacios entre palabras
         minimumSpaces = wordCounter - 1;
         if (minimumSpaces == 0){
             minimumSpaces = 1;
         }
-
-        // Espacios que se van a distribuir
         spaceDistribution = (intColumnSize - (spaceCounter));
 
-        // Entre n espacios : minimumSpaces
         spacesToAdd = java.lang.Math.ceilDiv(spaceDistribution, minimumSpaces);
         int aux = spaceDistribution % spacesToAdd;
 
