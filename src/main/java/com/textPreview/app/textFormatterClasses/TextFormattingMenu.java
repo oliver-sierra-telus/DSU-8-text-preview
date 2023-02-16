@@ -17,7 +17,6 @@ public class TextFormattingMenu {
 
     }
 
-    
     public void startMenu() {
         Scanner in = new Scanner(System.in);
         int option = 0;
@@ -26,13 +25,12 @@ public class TextFormattingMenu {
         System.out.println("-----------------------------------------------------");
         System.out.println("-Enter text to justify:");
         textToFormat = in.nextLine();
-         words = splitWords(textToFormat);
+        words = splitWords(textToFormat);
         System.out.println();
-        System.out.println("-Enter the amount of columns to the new format:");
-        //tiene que ser un rango entre 10 y 50
-        while(columnSize < 10 || columnSize > 50 ) {
-        System.out.print("\tYour option: ");
-        columnSize = in.nextInt();
+        System.out.println("-Enter the amount of columns to the new format: (Between 10 to 50 columns)");
+        while (columnSize < 10 || columnSize > 50) {
+            System.out.print("\tYour option: ");
+            columnSize = in.nextInt();
         }
 
         System.out.println("-----------------------------------------------------");
@@ -45,9 +43,9 @@ public class TextFormattingMenu {
         System.out.println("-4. Justified                  -");
         System.out.println("-5. Salir                      -");
         System.out.println("--------------------------------");
-        while(option < 1 || option > 5) {
-        System.out.print("\tYour option: ");
-        option = in.nextInt();
+        while (option < 1 || option > 5) {
+            System.out.print("\tYour option: ");
+            option = in.nextInt();
         }
         justifyText(option);
     }
@@ -73,7 +71,6 @@ public class TextFormattingMenu {
             case 1:
                 TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> leftFormatedText = myFormat.formatText(columnSize, words);
-                // myArray.forEach(System.out::println);
                 paintFormatedText(leftFormatedText, "-");
                 break;
             case 2:
@@ -90,16 +87,10 @@ public class TextFormattingMenu {
                 TextFormarter justify = JustifyFormat.getInstance();
                 ArrayList<String> justifyFormatedText = justify.formatText(columnSize, words);
                 paintFormatedText(justifyFormatedText, "*");
-
-                // return justify.formatText(columnSize,words);
-                // prueba.forEach(e -> System.out.println(e));
-
                 break;
-
             case 5:
                 System.out.println("Saliendo...");
                 break;
-
             default:
                 System.out.println("Ingresa una opcion valida");
                 break;
