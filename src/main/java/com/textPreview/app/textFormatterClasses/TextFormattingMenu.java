@@ -17,40 +17,39 @@ public class TextFormattingMenu {
 
     }
 
+    
     public void startMenu() {
         Scanner in = new Scanner(System.in);
         int option = 0;
+        columnSize = 0;
+
         System.out.println("-----------------------------------------------------");
-        System.out.println("-Ingrese el texto a justificar");
+        System.out.println("-Enter text to justify:");
         textToFormat = in.nextLine();
+         words = splitWords(textToFormat);
         System.out.println();
-        System.out.println("-Ingrese el numero de columnas para el nuevo formato");
+        System.out.println("-Enter the amount of columns to the new format:");
+        //tiene que ser un rango entre 10 y 50
+        while(columnSize < 10 || columnSize > 50 ) {
+        System.out.print("\tYour option: ");
         columnSize = in.nextInt();
+        }
+
         System.out.println("-----------------------------------------------------");
-        words = splitWords(textToFormat);
-        do {
-            
-            option = 0;
-
-            if(columnSize>=25){
-                System.out.println("--------------------------------");
-                System.out.println("-Cual formato quieres utilizar?-");
-                System.out.println("--------------------------------");
-                System.out.println("-1. Justificado a la izquierda -");
-                System.out.println("-2. Justificado a la derecha   -");
-                System.out.println("-3. Centrado                   -");
-                System.out.println("-4. Justificado                -");
-                System.out.println("-5. Salir                      -");
-                System.out.println("--------------------------------");
-                option = in.nextInt();
-                justifyText(option);
-            }
-            else {
-                System.out.println("**Ingresa un numero de columnas mayor a 25**");
-            }
-
-        } while(option!=5);
-
+        System.out.println("--------------------------------");
+        System.out.println("-Select your prefered justification style:-");
+        System.out.println("--------------------------------");
+        System.out.println("-1. Left justified             -");
+        System.out.println("-2. Right justified            -");
+        System.out.println("-3. Center justified           -");
+        System.out.println("-4. Justified                  -");
+        System.out.println("-5. Salir                      -");
+        System.out.println("--------------------------------");
+        while(option < 1 || option > 5) {
+        System.out.print("\tYour option: ");
+        option = in.nextInt();
+        }
+        justifyText(option);
     }
 
     private String[] splitWords(String texStringFormat) {
@@ -60,7 +59,7 @@ public class TextFormattingMenu {
     private void paintFormatedText(ArrayList<String> rowList, String borderChar) {
         String headerFoot = borderChar.repeat(rowList.get(0).length() + 2);
         System.out.println(headerFoot);
-        rowList.forEach( (e) -> {
+        rowList.forEach((e) -> {
             System.out.print(borderChar);
             System.out.print(e);
             System.out.println(borderChar);
@@ -74,7 +73,7 @@ public class TextFormattingMenu {
             case 1:
                 TextFormarter myFormat = LeftFormat.getInstance();
                 ArrayList<String> leftFormatedText = myFormat.formatText(columnSize, words);
-                //myArray.forEach(System.out::println);
+                // myArray.forEach(System.out::println);
                 paintFormatedText(leftFormatedText, "-");
                 break;
             case 2:

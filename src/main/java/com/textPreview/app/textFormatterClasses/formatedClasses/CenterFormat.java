@@ -33,13 +33,10 @@ public class CenterFormat extends TextFormarter {
             for (int j = 0; j < whiteSpaces; j++) {
                 addSpaces += " ";
             }
-            //revisar que no se pase del numero de columnas
-            
+    
             String provisional = addSpaces + textInLines.get(i) + addSpaces;
             if(provisional.length()==intColumnSize){
-                //remover uno
                 provisional = provisional.substring(0, intColumnSize-1);
-                
             }
             linesPrepared.add(provisional);
 
@@ -56,7 +53,6 @@ public class CenterFormat extends TextFormarter {
                 miCadena += arrayWords[i];
                 miCadena += " ";
             } else {
-
                 wordsByLine.add(miCadena);
                 miCadena = "";
             }

@@ -9,13 +9,14 @@ public class JustifyFormat extends TextFormarter {
     private int wordTextIndex = 0;
     private int wordIndex = 0;
     private JustifyFormat(){}
+
     public static JustifyFormat getInstance(){
         if(justifyFormatInstance==null){
             justifyFormatInstance = new JustifyFormat();
         }
         return justifyFormatInstance;
     }
-    
+
     @Override
     public ArrayList<String> formatText(int intColumnSize, String[] words){
         wordTextIndex = 0;
@@ -26,7 +27,9 @@ public class JustifyFormat extends TextFormarter {
             String line = lineGenerator(intColumnSize, words);
             textFormatted.add(line);
         }
-
+        
+        wordTextIndex = 0;
+        wordIndex = 0;
         return textFormatted;
     }
 
