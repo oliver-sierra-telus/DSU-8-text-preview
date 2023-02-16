@@ -27,7 +27,7 @@ public class JustifyFormat extends TextFormarter {
             String line = lineGenerator(intColumnSize, words);
             textFormatted.add(line);
         }
-        
+
         wordTextIndex = 0;
         wordIndex = 0;
         return textFormatted;
@@ -40,7 +40,7 @@ public class JustifyFormat extends TextFormarter {
         int spacesToAdd = 0;
         int minimumSpaces = 0;
         int spacesAdded = 0;
-        String lineBuilding = " ";
+        String lineBuilding = "";
         String whiteSpace = " ";
 
         do {
@@ -80,7 +80,7 @@ public class JustifyFormat extends TextFormarter {
             }
             
         }
-
-        return lineBuilding;
+        
+        return lineBuilding.substring(0, intColumnSize);
     }
 }
