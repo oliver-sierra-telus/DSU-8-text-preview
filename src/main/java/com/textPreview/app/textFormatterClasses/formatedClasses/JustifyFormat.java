@@ -63,7 +63,7 @@ public class JustifyFormat extends TextFormarter {
         spaceDistribution = (intColumnSize - (spaceCounter));
 
         // Entre n espacios : minimumSpaces
-        spacesToAdd = Math.ceilDiv(spaceDistribution, minimumSpaces);
+        spacesToAdd = java.lang.Math.ceilDiv(spaceDistribution, minimumSpaces);
         int aux = spaceDistribution % spacesToAdd;
 
         for (int i = 0; i < wordCounter; i++) { 

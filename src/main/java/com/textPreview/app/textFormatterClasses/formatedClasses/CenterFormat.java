@@ -38,6 +38,7 @@ public class CenterFormat extends TextFormarter {
             linesPrepared.add(provisional);
             addSpaces = "";
         }
+        System.out.println(linesPrepared.toString());
         return linesPrepared;
     }
 
@@ -45,11 +46,12 @@ public class CenterFormat extends TextFormarter {
         ArrayList<String> wordsByLine = new ArrayList<>();
         String miCadena = "";
         for (int i = 0; i < arrayWords.length; i++) {
-            if ((miCadena.length() + arrayWords[i].length() + 1) < (intColumnSize)) {
+            if ((miCadena.length() + (arrayWords[i]).length() + 1) < (intColumnSize)) {
                 miCadena += arrayWords[i];
                 miCadena += " ";
             } else {
-                wordsByLine.add(miCadena);
+                String removeLastSpace = miCadena.substring(0,miCadena.length()-1);
+                wordsByLine.add(removeLastSpace);
                 wordsByLine.add(arrayWords[i]);
                 miCadena = "";
             }
